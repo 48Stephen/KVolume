@@ -2,7 +2,7 @@ require('dotenv').config() // Load .env file
 const axios = require('axios')
 const Discord = require('discord.js')
 const client = new Discord.Client()
-const botSecret = 'OTA4MzI0OTQwNjYxNTM4ODM2.G4711y.pvunbaUFNCUKGD3FMPkcRJ640M8MdRTzsOU2a4';
+const botSecret = 'MTA0NDc1MzkzNzkwMDc2OTM1MA.GQDEXf.3jPAItBnbXUHkmCAVnDTulYguQxjW4GRYWg_vI';
 
 
 
