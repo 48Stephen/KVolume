@@ -85,7 +85,7 @@ function getPrices() {
 }
 
 
-// Runs when client connects to Discord.
+
  client.on('ready', () => {
 	console.log('Logged in as', client.user.tag)
 
