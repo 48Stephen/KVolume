@@ -45,7 +45,7 @@ function getPrices() {
 
 
 					if(num.length === 6){
-						num = "$" + num.charAt(0) + num.charAt(1) + num.charAt(2) + " " + "k"
+						num = num.charAt(0) + num.charAt(1) + num.charAt(2) + " " + "k"
 					};
 
 					if(num.length === 7){
@@ -53,7 +53,7 @@ function getPrices() {
 					};
 
 					if(num.length === 8){
-						num = "$" + num.charAt(0) + num.charAt(1) + " " + "mil"
+						num = num.charAt(0) + num.charAt(1) + " " + "mil"
 					};
 
 
@@ -63,7 +63,7 @@ function getPrices() {
 						client.user.setPresence({
 							game: {
 								
-								name: `${tvl[count].name + " " + num}`
+								name: `${tvl[count].name + " " + "$" + num}`
 								
 							}
 							
