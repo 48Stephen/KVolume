@@ -3,17 +3,23 @@ const axios = require('axios')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const botSecret = 'OTA4MzI0OTQwNjYxNTM4ODM2.G4711y.pvunbaUFNCUKGD3FMPkcRJ640M8MdRTzsOU2a4';
-const guildId = '1042880987203379250'
+
 
 
 let count = -1;
+
 console.log(count)
 
 function getPrices() {
 
-	count = count +1
-	console.log(count)	
+	if(count >= 4){
+		count = 0;
+		console.log("count reset")
+	}else{
+		count = count +1
+	}
 
+	
 	axios.get(`https://api.llama.fi/protocol/hop-protocol`)
 	.then((res) => {
 		
@@ -27,14 +33,14 @@ function getPrices() {
 					let tvlPolygon = res.data.currentChainTvls.Polygon;
 					let tvlArbitrum = res.data.currentChainTvls.Arbitrum;
 					tvl.push(
-						{name: "Optimism", chainTvl: 10000000},
+						{name: "Optimism", chainTvl: tvlOptimism},
 					 	{name: "Ethereum", chainTvl: tvlEthereum}, 
 						{name: "Gnosis", chainTvl: tvlxDai}, 
 						{name: "Polygon", chainTvl: tvlPolygon}, 
 						{name: "Arbitrum", chainTvl: tvlArbitrum});
 
 					let num = Math.round(tvl[count].chainTvl).toString()
-					console.log(num.length)
+					
 
 
 
@@ -68,10 +74,7 @@ function getPrices() {
 					
 
 				
-				if(count > 4){
-					count = 0;
-					console.log("count reset")
-				}
+				
 			
 
 			
