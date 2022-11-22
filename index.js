@@ -63,13 +63,13 @@ function getPrices() {
 						client.user.setPresence({
 							game: {
 								
-								name: `${ tvl[count].name + " " + num}`,
-								type: 3 
+								name: `${tvl[count].name + " " + num}`
+								
 							}
 							
 						})
 						
-						client.guilds.find(guild => guild.id === process.env.SERVER_ID).me.setNickname("Hop TVL")
+						//client.guilds.find(guild => guild.id === process.env.SERVER_ID).me.setNickname("Hop TVL")
 						
 					
 
