@@ -49,7 +49,7 @@ function getPrices() {
 					};
 
 					if(num.length === 7){
-						num = "$" + num.charAt(0) + "." + num.charAt(1) + " " + "mil"
+						num = num.charAt(0) + "." + num.charAt(1) + " " + "mil"
 					};
 
 					if(num.length === 8){
