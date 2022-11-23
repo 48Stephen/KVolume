@@ -32,11 +32,17 @@ function getPrices() {
 		let priceChangeFormatted = Math.round(priceChange)  + "%"
 		
 		let formattedVolume = Math.round(volume).toString()
+
+		if (formattedVolume.length >= 4){
+			formattedVolume = formattedVolume.charAt(0) + "k"
+		}
+
 		if (formattedVolume.length === 5){
-			formattedVolume = formattedVolume + "K"
+			formattedVolume = formattedVolume.charAt(0) + formattedVolume.charAt(1) + "k"
+			
 		}
 		if (formattedVolume.length === 6){
-			formattedVolume = formattedVolume + "K"
+			formattedVolume = formattedVolume.charAt(0) + formattedVolume.charAt(1) + formattedVolume.charAt(2) + "k"
 		}
 
 		if (formattedVolume.length >= 7){
@@ -44,7 +50,6 @@ function getPrices() {
 		}
 		
 		
-		console.log(volume)	
 					
 					let array = [
 						{name: "Eth Valuation", value: ethPrice},
