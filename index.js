@@ -2,7 +2,7 @@ require('dotenv').config() // Load .env file
 const axios = require('axios')
 const Discord = require('discord.js')
 const client = new Discord.Client()
-const botSecret = 'MTA0NDc1MzkzNzkwMDc2OTM1MA.GQDEXf.3jPAItBnbXUHkmCAVnDTulYguQxjW4GRYWg_vI';
+const botSecret = 'MTA0NTA4ODA4MjA5OTE4Nzc2Mg.GH4CHl.U50NFs5r_5Ym_GWr4qoNePX_cPML_0Srd3lP3U';
 
 
 
@@ -12,7 +12,7 @@ console.log(count)
 
 function getPrices() {
 
-	if(count >= 4){
+	if(count >= 2){
 		count = 0;
 		console.log("count reset")
 	}else{
@@ -20,56 +20,54 @@ function getPrices() {
 	}
 
 	
-	axios.get(`https://api.llama.fi/protocol/hop-protocol`)
+	axios.get(`https://api.dexscreener.com/latest/dex/pairs/optimism/0x36e42931A765022790b797963e42c5522d6b585a`)
 	.then((res) => {
+		let data = res.data;
+
+		let priceUsd = data.pair.priceUsd
+		let volume = data.pair.volume.h24
+		let ethPrice = data.pair.priceNative
+		let priceChange = data.pair.priceChange.h24
+
+		let priceChangeFormatted = Math.round(priceChange)  + "%"
 		
-		console.log(count)	
+		let formattedVolume = Math.round(volume).toString()
+		if (formattedVolume.length === 5){
+			formattedVolume = formattedVolume + "K"
+		}
+		if (formattedVolume.length === 6){
+			formattedVolume = formattedVolume + "K"
+		}
+
+		if (formattedVolume.length >= 7){
+			formattedVolume = formattedVolume + "mil"
+		}
+		
+		
+		console.log(volume)	
+					
+					let array = [
+						{name: "Eth Valuation", value: ethPrice},
+						{name: "24hr Volume", value: formattedVolume},
+						{name: "24hr Change ", value: priceChangeFormatted}
+					];
+
 					
 					
-					let tvl = []
-					let tvlOptimism = res.data.currentChainTvls.Optimism;
-					let tvlEthereum = res.data.currentChainTvls.Ethereum;
-					let tvlxDai = res.data.currentChainTvls.xDai;
-					let tvlPolygon = res.data.currentChainTvls.Polygon;
-					let tvlArbitrum = res.data.currentChainTvls.Arbitrum;
-					tvl.push(
-						{name: "Optimism", chainTvl: tvlOptimism},
-					 	{name: "Ethereum", chainTvl: tvlEthereum}, 
-						{name: "Gnosis", chainTvl: tvlxDai}, 
-						{name: "Polygon", chainTvl: tvlPolygon}, 
-						{name: "Arbitrum", chainTvl: tvlArbitrum});
-
-					let num = Math.round(tvl[count].chainTvl).toString()
-					
 
 
 
-					if(num.length === 6){
-						num = num.charAt(0) + num.charAt(1) + num.charAt(2) + " " + "k"
-					};
-
-					if(num.length === 7){
-						num = num.charAt(0) + "." + num.charAt(1) + " " + "mil"
-					};
-
-					if(num.length === 8){
-						num = num.charAt(0) + num.charAt(1) + " " + "mil"
-					};
-
-
-
-					console.log(tvl)
-
-						client.user.setPresence({
+					 
+						 client.user.setPresence({
 							game: {
 								
-								name: `${tvl[count].name + " " + "$" + num}`
+								name: `${ array[count].name + " "+ array[count].value }`
 								
 							}
 							
-						})
+						})  
 						
-						//client.guilds.find(guild => guild.id === process.env.SERVER_ID).me.setNickname("Hop TVL")
+						client.guilds.find(guild => guild.id === process.env.SERVER_ID).me.setNickname("$"+`${priceUsd}`)
 						
 					
 
@@ -90,8 +88,8 @@ function getPrices() {
 	console.log('Logged in as', client.user.tag)
 
 	getPrices() 
-	// Ping the server and set the new status message every x minutes. (Minimum of 1 minute)
-	setInterval(getPrices, Math.max(1, process.env.MC_PING_FREQUENCY || 1) * 60 * 1000)
+	
+	setInterval(getPrices, Math.max(1, process.env.MC_PING_FREQUENCY || 1) * 60 * 100)
 })
 console.log("hello")
 
