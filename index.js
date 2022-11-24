@@ -34,6 +34,11 @@ function getPrices() {
 
       let formattedVolume = Math.round(volume).toString();
 
+      
+      if (formattedVolume.length >= 3) {
+        formattedVolume = formattedVolume.charAt(0) + formattedVolume.charAt(1) + formattedVolume.charAt(2);
+      }
+
       if (formattedVolume.length >= 4) {
         formattedVolume = formattedVolume.charAt(0) + "k";
       }
