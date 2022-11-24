@@ -1,12 +1,18 @@
 {
-	"author": "Carlos Ferreras",
-	"license": "MIT",
-	"scripts": {
-		"start": "node index.js"
-	},
-	"dependencies": {
-		"axios": "^0.17.1",
-		"discord.js": "^11.3.0",
-		"dotenv": "^5.0.0"
-	}
+  "name": "bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "discord.js": "^12.0.0",
+    "dotenv": "^5.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
 }
