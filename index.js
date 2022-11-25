@@ -34,7 +34,7 @@ function getPrices() {
 
       let formattedVolume = Math.round(volume).toString();
 
-      
+      console.log(priceUsd)
       if (formattedVolume.length >= 3) {
         formattedVolume = formattedVolume.charAt(0) + formattedVolume.charAt(1) + formattedVolume.charAt(2);
       }
@@ -85,7 +85,7 @@ function getPrices() {
 	  
        //client.guilds.find(guild => guild.id === process.env.SERVER_ID).me.setNickname(`${(currentPrice).toLocaleString().replace(/,/g,process.env.THOUSAND_SEPARATOR)}${process.env.CURRENCY_SYMBOL}`)
        client.guilds.cache.find((guild) => guild.id === process.env.SERVER_ID).me.setNickname("$" + `${priceUsd}`);  
-       console.log(priceUsd)
+       
     })
 
 	
