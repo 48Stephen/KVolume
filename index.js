@@ -62,8 +62,8 @@ function getVolume() {
       client.user.setPresence({
         status: 'available',
         activity: {
-            name: formattedPrice,
-            type: 'PLAYING'
+            name: "24hr Volume",
+            type: 'Watching'
         }
       });
     })
