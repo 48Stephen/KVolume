@@ -100,7 +100,7 @@ function getPrices() {
 
 	setInterval(
 		getPrices,
-		Math.max(1, process.env.MC_PING_FREQUENCY || 1) * 60 * 1000
+		Math.max(1, process.env.MC_PING_FREQUENCY || 60) * 60 * 1000
 	);
 	});
 	console.log("hello");
