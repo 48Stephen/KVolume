@@ -63,7 +63,7 @@ function getVolume() {
         status: 'available',
         activity: {
             name: "24hr Volume",
-            type: 'Playing'
+            type: 'WATCHING'
         }
       });
     })
