@@ -3,9 +3,7 @@ const axios = require("axios");
 const Discord = require("discord.js");
 const client = new Discord.Client()
 
-const botSecret =
-  "MTA0NTA4ODA4MjA5OTE4Nzc2Mg.GH4CHl.U50NFs5r_5Ym_GWr4qoNePX_cPML_0Srd3lP3U";
-
+const botSecret = process.env.BOT_SECRET
 
 let count = -1;
 

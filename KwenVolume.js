@@ -1,10 +1,10 @@
-require("dotenv").config(); // Load .env file
+require("dotenv").config();
 const axios = require("axios");
 const Decimal = require('decimal.js');
 const Discord = require("discord.js");
 const client = new Discord.Client()
 
-const botSecret = "MTA0NTA4ODA4MjA5OTE4Nzc2Mg.GH4CHl.U50NFs5r_5Ym_GWr4qoNePX_cPML_0Srd3lP3U";
+const botSecret = process.env.BOT_SECRET
 
 
 function getVolume() {
@@ -116,7 +116,7 @@ function getVolume() {
     getVolume();
 	setInterval(
 		getVolume,
-		Math.max(1, process.env.MC_PING_FREQUENCY || 1) * 60 * 1000
+		60 * 60 * 1000
 	);
 	});
 	console.log("hello");
