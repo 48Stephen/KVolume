@@ -58,7 +58,7 @@ function getVolume() {
       formattedPrice = formatUSD(usdVolume, 'en-US', 'USD', 3);
       
       console.log(formattedPrice)
-      client.user.setUsername(formattedPrice);
+      
       client.user.setPresence({
         status: 'available',
         activity: {
@@ -113,6 +113,7 @@ function getVolume() {
 	client.on("ready", () => {
 		client.user.tag = "Hi";
 		console.log("Logged in as", client.user.tag);
+    client.user.setUsername(formattedPrice);
 
     getVolume();
 	setInterval(
