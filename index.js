@@ -58,6 +58,7 @@ function getVolume() {
       formattedPrice = formatUSD(usdVolume, 'en-US', 'USD', 3);
       
       console.log(formattedPrice)
+      client.user.setUsername(formattedPrice);
       client.user.setPresence({
         status: 'available',
         activity: {
