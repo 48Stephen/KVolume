@@ -1,1 +1,1 @@
-Worker: node ./KwenVolume.js
+Worker: node ./index.js
