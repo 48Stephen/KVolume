@@ -109,18 +109,21 @@ function getVolume() {
    
 	
 }
+module.exports = getVolume;
+
+
 
 	client.on("ready", () => {
 		client.user.tag = "Hi";
 		console.log("Logged in as", client.user.tag);
     /* client.user.setUsername(`${formattedPrice}`); */
-
+    console.log(process.env.BOT_SECRET)
     getVolume();
-	setInterval(
+	  setInterval(
 		getVolume,
 		60 * 60 * 1000
 	);
 	});
 	console.log("hello");
-
 	client.login(`${botSecret}`);
+  
