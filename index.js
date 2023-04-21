@@ -107,9 +107,10 @@ function getVolume() {
 
 module.exports = getVolume;
 console.log("hello");
+
 client.on("ready", () => {
-  client.user.tag = "Hi";
   client.user.setUsername(`${formattedPrice}`);
+  client.user.tag = "Hi";
   client.user.setPresence({
     status: 'online',
     activity: {
@@ -118,10 +119,13 @@ client.on("ready", () => {
     },
   });
   console.log(process.env.BOT_SECRET)
+  console.log(formattedPrice)
   /* getVolume(); */
   setInterval(
     getVolume,
     60 * 60 * 1000
   );
 });
+
+
 client.login(`${botSecret}`);
