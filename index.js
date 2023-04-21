@@ -6,23 +6,7 @@ const client = new Discord.Client()
 
 const botSecret = process.env.BOT_SECRET
 
-client.on("ready", () => {
-  client.user.tag = "Hi";
-  console.log("Logged in as", client.user.tag);
-  client.user.setPresence({
-    status: 'online',
-    activity: {
-      name: '24hr Volume',
-      type: 'PLAYING',
-    },
-  });
-  console.log(process.env.BOT_SECRET)
-  /* getVolume(); */
-  setInterval(
-    getVolume,
-    60 * 60 * 1000
-  );
-});
+
 
 
 function getVolume() {
@@ -76,7 +60,7 @@ function getVolume() {
       formattedPrice = formatUSD(usdVolume, 'en-US', 'USD', 3);
       
       console.log(formattedPrice)
-      client.user.setUsername(`${formattedPrice}`);
+      
     })
     .catch(error => {
       console.log(`Error: ${error.message}`);
@@ -123,4 +107,21 @@ function getVolume() {
 
 module.exports = getVolume;
 console.log("hello");
+client.on("ready", () => {
+  client.user.tag = "Hi";
+  client.user.setUsername(`${formattedPrice}`);
+  client.user.setPresence({
+    status: 'online',
+    activity: {
+      name: '24hr Volume',
+      type: 'PLAYING',
+    },
+  });
+  console.log(process.env.BOT_SECRET)
+  /* getVolume(); */
+  setInterval(
+    getVolume,
+    60 * 60 * 1000
+  );
+});
 client.login(`${botSecret}`);
