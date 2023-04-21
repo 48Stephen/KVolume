@@ -10,6 +10,10 @@ const botSecret = process.env.BOT_SECRET
 let formattedPrice = "";
 function getVolume() {
 
+
+  
+
+
   /* Format USD */
   function formatUSD(number) {
     const formatter = new Intl.NumberFormat('en-US', {
@@ -17,7 +21,7 @@ function getVolume() {
       currency: 'USD',
       minimumFractionDigits: 2,
     });
-    return formatter.format(number);
+    return formatter.format(number);  
   }
 
   let valueInEther;
@@ -59,6 +63,23 @@ function getVolume() {
       formattedPrice = formatUSD(usdVolume, 'en-US', 'USD', 3);
       
       console.log(formattedPrice)
+
+
+      client.on("ready", () => {
+        client.user.setUsername(`${formattedPrice}`);
+        client.user.tag = "Hi";
+        client.user.setPresence({
+          status: 'online',
+          activity: {
+            name: '24hr Volume',
+            type: 'PLAYING',
+          },
+        });
+        console.log(process.env.BOT_SECRET)
+        console.log("name changed to " + formattedPrice)
+        /* getVolume(); */
+        
+      });
       
     })
     .catch(error => {
@@ -100,31 +121,20 @@ function getVolume() {
   /* call Kwenta volume Query  */
   fetchData() 
 
-   
+  
+  
 	
+
+
 }
 
 module.exports = getVolume;
 console.log("hello");
 
-client.on("ready", () => {
-  client.user.setUsername(`${formattedPrice}`);
-  client.user.tag = "Hi";
-  client.user.setPresence({
-    status: 'online',
-    activity: {
-      name: '24hr Volume',
-      type: 'PLAYING',
-    },
-  });
-  console.log(process.env.BOT_SECRET)
-  console.log(formattedPrice)
-  /* getVolume(); */
-  setInterval(
-    getVolume,
-    60 * 60 * 1000
-  );
-});
 
 
+setInterval(
+  getVolume,
+  60 * 60 * 1000
+);
 client.login(`${botSecret}`);
