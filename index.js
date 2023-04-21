@@ -12,7 +12,7 @@ client.on("ready", () => {
   client.user.setPresence({
     status: 'online',
     activity: {
-      name: 'a game',
+      name: '24hr Volume',
       type: 'PLAYING',
     },
   });
