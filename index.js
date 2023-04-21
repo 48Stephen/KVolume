@@ -9,7 +9,13 @@ const botSecret = process.env.BOT_SECRET
 client.on("ready", () => {
   client.user.tag = "Hi";
   console.log("Logged in as", client.user.tag);
-  /* client.user.setUsername(`${formattedPrice}`); */
+  client.user.setPresence({
+    status: 'online',
+    activity: {
+      name: 'a game',
+      type: 'PLAYING',
+    },
+  });
   console.log(process.env.BOT_SECRET)
   getVolume();
   setInterval(
