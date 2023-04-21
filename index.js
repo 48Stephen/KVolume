@@ -113,7 +113,7 @@ function getVolume() {
 	client.on("ready", () => {
 		client.user.tag = "Hi";
 		console.log("Logged in as", client.user.tag);
-    client.user.setUsername(`${formattedPrice}`);
+    /* client.user.setUsername(`${formattedPrice}`); */
 
     getVolume();
 	setInterval(
