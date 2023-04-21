@@ -17,7 +17,7 @@ client.on("ready", () => {
     },
   });
   console.log(process.env.BOT_SECRET)
-  getVolume();
+  /* getVolume(); */
   setInterval(
     getVolume,
     60 * 60 * 1000
