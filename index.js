@@ -7,8 +7,7 @@ const client = new Discord.Client()
 const botSecret = process.env.BOT_SECRET
 
 
-
-
+let formattedPrice = "";
 function getVolume() {
 
   /* Format USD */
@@ -44,7 +43,7 @@ function getVolume() {
 
   let ethPrice;
   let usdVolume;
-  let formattedPrice = "";
+  
 
   /* 
     Get eth price
