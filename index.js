@@ -71,13 +71,13 @@ function getVolume() {
       
       console.log(formattedPrice)
       client.user.setUsername(`${formattedPrice}`);
-      client.user.setPresence({
+      /* client.user.setPresence({
         status: 'available',
         activity: {
             name: "24hr Volume",
             type: 'PLAYING'
         }
-      });
+      }); */
     })
     .catch(error => {
       console.log(`Error: ${error.message}`);
