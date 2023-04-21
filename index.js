@@ -6,6 +6,18 @@ const client = new Discord.Client()
 
 const botSecret = process.env.BOT_SECRET
 
+client.on("ready", () => {
+  client.user.tag = "Hi";
+  console.log("Logged in as", client.user.tag);
+  /* client.user.setUsername(`${formattedPrice}`); */
+  console.log(process.env.BOT_SECRET)
+  getVolume();
+  setInterval(
+    getVolume,
+    60 * 60 * 1000
+  );
+});
+
 
 function getVolume() {
 
@@ -113,17 +125,17 @@ module.exports = getVolume;
 
 
 
-	client.on("ready", () => {
+	/* client.on("ready", () => {
 		client.user.tag = "Hi";
 		console.log("Logged in as", client.user.tag);
-    /* client.user.setUsername(`${formattedPrice}`); */
+    // client.user.setUsername(`${formattedPrice}`); 
     console.log(process.env.BOT_SECRET)
     getVolume();
 	  setInterval(
 		getVolume,
 		60 * 60 * 1000
 	);
-	});
+	}); */
 	console.log("hello");
 	client.login(`${botSecret}`);
   
