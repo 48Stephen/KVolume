@@ -114,7 +114,7 @@ function getVolume() {
         console.error(error);
       });
   }
-  /* call Kwenta volume Query */
+  /* call Kwenta volume Query  */
   fetchData() 
 
    
