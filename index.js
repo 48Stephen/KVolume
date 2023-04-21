@@ -66,7 +66,21 @@ function getVolume() {
 
 
       client.on("ready", () => {
-        client.user.setUsername(`${formattedPrice}`);
+
+
+
+        const guild = client.guilds.cache.get('1042880987203379250');
+        const botMember = guild.me;
+        botMember.setNickname(`${formattedPrice}`)
+          .then(updated => console.log(`My new nickname is ${updated.nickname}`))
+          .catch(console.error);
+
+
+
+
+
+
+        /* client.user.setNickname(`${formattedPrice}`); */
         client.user.tag = "Hi";
         client.user.setPresence({
           status: 'online',
