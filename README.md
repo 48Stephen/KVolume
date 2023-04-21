@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Kwenta Volume Bot</title>
-  </head>
   <body>
     <h1>Kwenta Volume Bot</h1>
     <p>
